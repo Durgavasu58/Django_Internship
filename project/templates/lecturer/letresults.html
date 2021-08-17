@@ -1,0 +1,40 @@
+{% extends 'base.html' %} {% block content %}
+<div class="container">
+  <h3 class="display-2 text-center">Lecturer Details</h3>
+  <form
+    class="form-inline my-lg-0 bg-dark p-2"
+    method="get"
+    action="{% url 'Relationsapp:letresult' %}"
+  >
+    <input
+      class="form-control mr-sm-2"
+      type="search"
+      placeholder="Search"
+      aria-label="Search"
+      name="q"
+    />
+    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
+      Search
+    </button>
+  </form>
+
+  <table class="table table-hover">
+    <thead>
+      <tr></tr>
+    </thead>
+    <tbody class="table table-striped table-hover">
+      <tr class="table-success text-center">
+        <th>Name</th>
+        <th>Department</th>
+      </tr>
+      {% for data in lectlist %}
+      <tr class="text-center">
+        <td>{{data.Lecturer_name}}</td>
+        <td>{{data.get_dept_values}}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+
+{% endblock %}

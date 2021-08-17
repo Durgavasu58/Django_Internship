@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+ {% load crispy_forms_tags %} 
+ {% block content %}
+<div class="container" style="width: 60%">
+  <form method="POST" class="jumbotron">
+    {% csrf_token %}
+    <h5>
+      Are you sure to delete student with
+      <b class="text-success">
+        <b class="text-danger">Name-->"{{object.name}}" </b> and <b>city--> "
+        {{object.city}}"</b
+      >
+    </h5>
+    <br />
+    <input type="submit" value="Delete" class="btn btn-danger" />
+    <a href="{% url 'Relationsapp:list' %}">
+      <input
+        type="button"
+        value="Cancel"
+        class="btn btn-dark"
+        style="margin-left: 10%"
+      />
+    </a>
+  </form>
+</div>
+
+{% endblock %}

@@ -1,0 +1,54 @@
+{% extends 'base.html' %} {% load static %} {% block content %}
+
+<div class="container">
+<h3 class="display-2 text-center">Student Details</h3>
+{% if stulist %}
+  <table class="table table-hover">
+    <thead>
+      <tr></tr>
+    </thead>
+  
+    <tbody class="table table-striped table-hover">
+      <tr class="table-success">
+        <th>Department</th>
+        <th>Name</th>
+        <th>Marks</th>
+        <th>City</th>
+      </tr>
+
+      {% for student in stulist %}
+      <tr>
+        <td>{{student.dept}}</td>
+        <td>{{student.name}}</td>
+        <td>{{student.marks}}</td>
+        <td>{{student.city}}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  {% else %}
+  <h4>No record found</h4>
+  <br>
+  <form class="form-inline my-2 my-lg-0" method='get' action="{% url 'Relationsapp:results' %}"
+          /> 
+          <input
+            class="form-control mr-sm-2"
+            type="search"
+            placeholder="Search"
+            aria-label="Search"
+            name="q"
+            />
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
+            Search
+          </button>
+        </form>
+  {% endif %}
+
+</div>
+
+
+
+
+
+
+{% endblock %}
